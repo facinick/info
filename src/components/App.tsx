@@ -27,8 +27,9 @@ const App = observer(function App() {
 
                 {currentPage === 0 && <CodesComponent />}
 
-                <Box position="fixed" color="primary" sx={{ width: '100%', top: 'auto', bottom: 0 }}>
+                <Box position="fixed" color="primary" sx={{ width: '100%', top: 'auto', bottom: 0, display: 'flex' }}>
                     <BottomNavigation
+                        sx={{ width: '100%' }}
                         showLabels
                         value={currentPage}
                         onChange={(event, newValue) => {
@@ -37,49 +38,44 @@ const App = observer(function App() {
                     >
                         <BottomNavigationAction label="Codes" icon={<LockIcon />} />
                         <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-
-                        <Box
-                            sx={{
-                                md: {
-                                    position: 'absolute',
-                                },
-                                marginLeft: 'auto',
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                top: 0,
-                                bottom: 0,
-                                right: 0,
-                                marginRight: '10px',
-                                sm: {
-                                    position: 'relative',
-                                },
-                            }}
-                        >
-                            {mode === 'light' && (
-                                <IconButton
-                                    // sx={{ marginLeft: 'auto' }}
-                                    onClick={() => setMode({ mode: 'dark' })}
-                                    color="secondary"
-                                    aria-label="enable dark mode"
-                                    // component="span"
-                                >
-                                    <DarkMode />
-                                </IconButton>
-                            )}
-
-                            {mode === 'dark' && (
-                                <IconButton
-                                    onClick={() => setMode({ mode: 'light' })}
-                                    color="secondary"
-                                    aria-label="enable dark mode"
-                                    // component="span"
-                                >
-                                    <LightMode />
-                                </IconButton>
-                            )}
-                        </Box>
                     </BottomNavigation>
+                    <Box
+                        sx={{
+                            // position: 'absolute',
+                            marginLeft: 'auto',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            top: 0,
+                            bottom: 0,
+                            right: 0,
+                            padding: '8px',
+                            backgroundColor: 'background.paper',
+                        }}
+                    >
+                        {mode === 'light' && (
+                            <IconButton
+                                // sx={{ marginLeft: 'auto' }}
+                                onClick={() => setMode({ mode: 'dark' })}
+                                color="secondary"
+                                aria-label="enable dark mode"
+                                // component="span"
+                            >
+                                <DarkMode />
+                            </IconButton>
+                        )}
+
+                        {mode === 'dark' && (
+                            <IconButton
+                                onClick={() => setMode({ mode: 'light' })}
+                                color="secondary"
+                                aria-label="enable dark mode"
+                                // component="span"
+                            >
+                                <LightMode />
+                            </IconButton>
+                        )}
+                    </Box>
                 </Box>
             </div>
         </ThemeProvider>
