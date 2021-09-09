@@ -1,5 +1,7 @@
 import { enableStaticRendering } from 'mobx-react-lite';
 import React, { createContext, ReactNode, useContext } from 'react';
+import { CodeStore } from './code_store';
+import { NavigationStore } from './navigation_store';
 import { RootStore, RootStoreHydration } from './root_store';
 import { ThemeStore } from './theme_store';
 
@@ -21,6 +23,16 @@ export function useRootStore(): RootStore {
 export function useThemeStore(): ThemeStore {
     const { themeStore } = useRootStore();
     return themeStore;
+}
+
+export function useCodeStore(): CodeStore {
+    const { codeStore } = useRootStore();
+    return codeStore;
+}
+
+export function useNavigationStore(): NavigationStore {
+    const { navigationStore } = useRootStore();
+    return navigationStore;
 }
 
 export function RootStoreProvider({

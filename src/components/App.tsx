@@ -5,18 +5,82 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { observer } from 'mobx-react-lite';
-import { CssBaseline, ThemeProvider } from '@mui/material';
-import { useThemeStore } from '../stores/provider';
+import { BottomNavigation, BottomNavigationAction, Box, CssBaseline, IconButton, ThemeProvider } from '@mui/material';
+import { useNavigationStore, useThemeStore } from '../stores/provider';
 import { HelloWorld } from './HelloWorld';
+import LockIcon from '@mui/icons-material/Lock';
+// import FavoriteIcon from '@mui/icons-material/Favorite';
+import HomeIcon from '@mui/icons-material/Home';
+import { CodesComponent } from './Codes';
+import DarkMode from '@mui/icons-material/DarkMode';
+import LightMode from '@mui/icons-material/LightMode';
 
 const App = observer(function App() {
-    const { theme } = useThemeStore();
+    const { theme, mode, setMode } = useThemeStore();
+    const { currentPage, setPage } = useNavigationStore();
 
     return (
         <ThemeProvider theme={theme}>
             <div className="App">
                 <CssBaseline />
                 <HelloWorld />
+
+                {currentPage === 0 && <CodesComponent />}
+
+                <Box position="fixed" color="primary" sx={{ width: '100%', top: 'auto', bottom: 0 }}>
+                    <BottomNavigation
+                        showLabels
+                        value={currentPage}
+                        onChange={(event, newValue) => {
+                            setPage({ page: newValue });
+                        }}
+                    >
+                        <BottomNavigationAction label="Codes" icon={<LockIcon />} />
+                        <BottomNavigationAction label="Home" icon={<HomeIcon />} />
+
+                        <Box
+                            sx={{
+                                md: {
+                                    position: 'absolute',
+                                },
+                                marginLeft: 'auto',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                top: 0,
+                                bottom: 0,
+                                right: 0,
+                                marginRight: '10px',
+                                sm: {
+                                    position: 'relative',
+                                },
+                            }}
+                        >
+                            {mode === 'light' && (
+                                <IconButton
+                                    // sx={{ marginLeft: 'auto' }}
+                                    onClick={() => setMode({ mode: 'dark' })}
+                                    color="secondary"
+                                    aria-label="enable dark mode"
+                                    // component="span"
+                                >
+                                    <DarkMode />
+                                </IconButton>
+                            )}
+
+                            {mode === 'dark' && (
+                                <IconButton
+                                    onClick={() => setMode({ mode: 'light' })}
+                                    color="secondary"
+                                    aria-label="enable dark mode"
+                                    // component="span"
+                                >
+                                    <LightMode />
+                                </IconButton>
+                            )}
+                        </Box>
+                    </BottomNavigation>
+                </Box>
             </div>
         </ThemeProvider>
     );

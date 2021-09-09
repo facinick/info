@@ -4,4 +4,8 @@ export const hyderationData: RootStoreHydration = {
     themeStoreInit: {
         mode: 'dark',
     },
+    codeStoreInit: {},
+    navigationStoreInit: {
+        defaultPage: 0,
+    },
 };

@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "place": "google",
+        "code": 420
+    },
+    {
+        "id": 2,
+        "place": "github",
+        "code": 1337
+    },
+    {
+        "id": 3,
+        "place": "yahoo",
+        "code": 669
+    },
+    {
+        "id": 4,
+        "place": "default",
+        "code": 777
+    },
+    {
+        "id": 5,
+        "place": "codepen",
+        "code": 80
+    },
+    {
+        "id": 5,
+        "place": "apple",
+        "code": 13313
+    }
+]
