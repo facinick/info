@@ -7,13 +7,14 @@ import '@fontsource/roboto/700.css';
 import { observer } from 'mobx-react-lite';
 import { BottomNavigation, BottomNavigationAction, Box, CssBaseline, IconButton, ThemeProvider } from '@mui/material';
 import { useNavigationStore, useThemeStore } from '../stores/provider';
-import { HelloWorld } from './HelloWorld';
+// import { HelloWorld } from './HelloWorld';
 import LockIcon from '@mui/icons-material/Lock';
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 import HomeIcon from '@mui/icons-material/Home';
 import { CodesComponent } from './Codes';
 import DarkMode from '@mui/icons-material/DarkMode';
 import LightMode from '@mui/icons-material/LightMode';
+import { LastUpdated } from './LastUpdated';
 
 const App = observer(function App() {
     const { theme, mode, setMode } = useThemeStore();
@@ -23,7 +24,8 @@ const App = observer(function App() {
         <ThemeProvider theme={theme}>
             <div className="App">
                 <CssBaseline />
-                <HelloWorld />
+                {/* <HelloWorld /> */}
+                <LastUpdated />
 
                 {currentPage === 0 && <CodesComponent />}
 
@@ -59,7 +61,6 @@ const App = observer(function App() {
                                 onClick={() => setMode({ mode: 'dark' })}
                                 color="secondary"
                                 aria-label="enable dark mode"
-                                // component="span"
                             >
                                 <DarkMode />
                             </IconButton>
@@ -70,7 +71,6 @@ const App = observer(function App() {
                                 onClick={() => setMode({ mode: 'light' })}
                                 color="secondary"
                                 aria-label="enable dark mode"
-                                // component="span"
                             >
                                 <LightMode />
                             </IconButton>

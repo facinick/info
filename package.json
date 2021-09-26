@@ -27,6 +27,7 @@
         "node-sass": "^4.14.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
+        "timeago.js": "^4.0.2",
         "web-vitals": "^0.2.4",
         "workbox-background-sync": "^5.1.3",
         "workbox-broadcast-update": "^5.1.3",
@@ -75,7 +76,8 @@
         "stylelint:fix": "stylelint src/**/*.{css,scss} --fix",
         "pretty": "prettier --write .",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d build"
+        "deploy": "gh-pages -d build",
+        "prebuild": "echo `date +%s` > src/build_time.txt"
     },
     "eslintConfig": {
         "extends": [
