@@ -6,14 +6,16 @@ import { Store } from './interface';
 
 export type ITheme = 'light' | 'dark';
 
+export const DEFAULT_THEME: ITheme = 'dark';
+
 export type ThemeStoreInit = {
     mode: ITheme;
 };
 
 export class ThemeStore implements Store {
     root: RootStore;
-    mode: ITheme = 'dark';
-    theme: Theme = darkTheme;
+    mode!: ITheme;
+    theme!: Theme;
 
     constructor(root: RootStore) {
         this.root = root;
@@ -25,6 +27,10 @@ export class ThemeStore implements Store {
         });
     }
 
+    hydrate(data: { mode: ITheme }): void {
+        this.setMode({ mode: data.mode });
+    }
+
     setMode = ({ mode }: { mode: ITheme }): void => {
         this.mode = mode;
         if (this.mode === 'light') {
@@ -32,15 +38,7 @@ export class ThemeStore implements Store {
         } else if (this.mode === 'dark') {
             this.theme = darkTheme;
         }
+
+        localStorage.setItem('theme', this.mode);
     };
-
-    hydrate(data: { mode: ITheme }): void {
-        this.mode = data.mode;
-
-        if (this.mode === 'light') {
-            this.theme = lightTheme;
-        } else if (this.mode === 'dark') {
-            this.theme = darkTheme;
-        }
-    }
 }

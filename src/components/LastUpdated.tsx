@@ -18,9 +18,9 @@ export const LastUpdated = (): JSX.Element => {
     }, []);
 
     return (
-        <h3>
+        <h4>
             {!date && <CircularProgress size={30} />}
             {date && `Updated ${timeago.format(new Date(Number(date) * 1000))}`}
-        </h3>
+        </h4>
     );
 };

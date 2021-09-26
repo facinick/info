@@ -5,7 +5,15 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { observer } from 'mobx-react-lite';
-import { BottomNavigation, BottomNavigationAction, Box, CssBaseline, IconButton, ThemeProvider } from '@mui/material';
+import {
+    BottomNavigation,
+    BottomNavigationAction,
+    Box,
+    CssBaseline,
+    // IconButton,
+    ThemeProvider,
+    ToggleButton,
+} from '@mui/material';
 import { useNavigationStore, useThemeStore } from '../stores/provider';
 // import { HelloWorld } from './HelloWorld';
 import LockIcon from '@mui/icons-material/Lock';
@@ -51,30 +59,19 @@ const App = observer(function App() {
                             top: 0,
                             bottom: 0,
                             right: 0,
-                            padding: '8px',
+                            padding: '0px 4px',
                             backgroundColor: 'background.paper',
                         }}
                     >
-                        {mode === 'light' && (
-                            <IconButton
-                                // sx={{ marginLeft: 'auto' }}
-                                onClick={() => setMode({ mode: 'dark' })}
-                                color="secondary"
-                                aria-label="enable dark mode"
-                            >
-                                <DarkMode />
-                            </IconButton>
-                        )}
-
-                        {mode === 'dark' && (
-                            <IconButton
-                                onClick={() => setMode({ mode: 'light' })}
-                                color="secondary"
-                                aria-label="enable dark mode"
-                            >
-                                <LightMode />
-                            </IconButton>
-                        )}
+                        <ToggleButton
+                            value="check"
+                            onChange={() => {
+                                setMode({ mode: mode === 'dark' ? 'light' : 'dark' });
+                            }}
+                        >
+                            {mode === 'light' && <DarkMode />}
+                            {mode === 'dark' && <LightMode />}
+                        </ToggleButton>
                     </Box>
                 </Box>
             </div>
