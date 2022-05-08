@@ -22,16 +22,16 @@
     {
         "id": 5,
         "place": "b&k",
-        "code": 80
+        "code": 80.88
     },
     {
         "id": 6,
         "place": "sec",
-        "code": 88
+        "code": 88.80
     },
     {
         "id": 7,
-        "place": "nvsp",
+        "place": "nvsp",``
         "code": 39
     },
     {
@@ -48,5 +48,10 @@
         "id": 10,
         "place": "cbs",
         "code": 999
+    },
+    {
+        "id": 11,
+        "place": "telegram",
+        "code": 7
     }
 ]
