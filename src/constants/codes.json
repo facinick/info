@@ -2,61 +2,66 @@
     {
         "id": 1,
         "place": "google",
-        "code": 420
+        "code": "420"
     },
     {
         "id": 2,
         "place": "github",
-        "code": 1337
+        "code": "1337"
     },
     {
         "id": 3,
         "place": "yahoo",
-        "code": 669
+        "code": "669"
     },
     {
         "id": 4,
         "place": "apple",
-        "code": 13313
+        "code": "13313"
     },
     {
         "id": 5,
         "place": "b&k",
-        "code": 80.88
+        "code": "80.88"
     },
     {
         "id": 6,
         "place": "sec",
-        "code": 88.80
+        "code": "88.80"
     },
     {
         "id": 7,
         "place": "nvsp",
-        "code": 39
+        "code": "39"
     },
     {
         "id": 8,
         "place": "passportindia",
-        "code": 8
+        "code": "8"
     },
     {
         "id": 9,
         "place": "microsoft",
-        "code": 360
+        "code": "360"
     },
     {
         "id": 10,
         "place": "cbs",
-        "code": 999
+        "code": "999"
     },
     {
         "id": 11,
         "place": "telegram",
-        "code": 7
+        "code": "7"
     },
     {
         "id": 12,
         "place": "zerodha",
-        "code": 0
+        "code": "0"
+    },
+    {
+        "id": 13,
+        "place": "wa",
+        "code": "20"
     }
 ]
