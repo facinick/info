@@ -8,7 +8,7 @@ export type CodeStoreInit = {};
 interface Code {
     id: number;
     place: string;
-    code: number;
+    code: string;
 }
 
 export class CodeStore implements Store {
